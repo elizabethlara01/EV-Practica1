@@ -1,0 +1,27 @@
+# Carpetas generadas por Unity (se regeneran solas)
+Library/
+Temp/
+Logs/
+obj/
+Build/
+Builds/
+
+# Carpetas de VS Code (opcional, puedes quitarlo si quieres subirlo)
+.vscode/
+
+# Archivos de usuario de Unity
+UserSettings/
+
+# Archivos de Visual Studio
+*.csproj
+*.sln
+*.suo
+*.user
+*.userprefs
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Crashlytics
+crashlytics-build.properties
