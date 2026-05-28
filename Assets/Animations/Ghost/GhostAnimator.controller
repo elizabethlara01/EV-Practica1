@@ -78,7 +78,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: agatha_RIG_skeleton|jumpscare1
+  m_Name: agatha_RIG_skeleton|jumpscare3
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -91,7 +91,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -866163957709150967, guid: 167dbb9017ca895439439f4d4ce035e7, type: 3}
+  m_Motion: {fileID: -8709830639537614856, guid: 167dbb9017ca895439439f4d4ce035e7, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -199,7 +199,7 @@ AnimatorStateMachine:
     m_Position: {x: 380, y: 230, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6071192477833358230}
-    m_Position: {x: 310, y: 20, z: 0}
+    m_Position: {x: 380, y: 20, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -5536029541979230921}

@@ -92,4 +92,18 @@ public class GhostController : MonoBehaviour
         agent.SetDestination(patrolPoints[currentPatrolIndex].position);
         currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
     }
+
+    public void PausarMovimiento()
+    {
+        agent.isStopped = true;
+        agent.velocity = Vector3.zero;
+        isChasing = false;
+        isLookingAround = false;
+    }
+
+    public void ReanudarMovimiento()
+    {
+        agent.isStopped = false;
+        GoToNextPatrolPoint();
+    }
 }

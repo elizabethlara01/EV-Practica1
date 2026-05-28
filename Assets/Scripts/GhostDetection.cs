@@ -13,6 +13,8 @@ public class GhostDetection : MonoBehaviour
     public Transform player;
     private GhostController ghostController;
 
+    [HideInInspector] public bool jumpscareActivo = false;
+
     void Start()
     {
         ghostController = GetComponent<GhostController>();
@@ -20,6 +22,8 @@ public class GhostDetection : MonoBehaviour
 
     void Update()
     {
+        if (jumpscareActivo) return; // No detecta durante el jumpscare
+        
         if (CanSeePlayer())
             ghostController.ChasePlayer(player.position);
         else
