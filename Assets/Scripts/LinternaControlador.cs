@@ -14,6 +14,7 @@ public class LinternaControlador : MonoBehaviour
         if (OVRInput.IsControllerConnected(OVRInput.Controller.RTouch))
         {
             // ---- MODO MANDOS ----
+            /*
             float agarre = OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger);
             bool puñoCerrado = agarre > 0.9f;
 
@@ -23,12 +24,18 @@ public class LinternaControlador : MonoBehaviour
             }
 
             puñoCerradoAntes = puñoCerrado;
+            */
+            // ---- MODO MANDOS ----
+            if (OVRInput.GetDown(OVRInput.Button.Two))
+            {
+                ToggleLinterna();
+            }
         }
         else if (manoDerecha != null && manoDerecha.IsTracked)
         {
             // ---- MODO HAND TRACKING ----
+            //bool pinch = manoDerecha.GetFingerIsPinching(OVRHand.HandFinger.Index);
             bool pinch = manoDerecha.GetFingerIsPinching(OVRHand.HandFinger.Index);
-
             if (pinch && !pinchAntes)
             {
                 ToggleLinterna();

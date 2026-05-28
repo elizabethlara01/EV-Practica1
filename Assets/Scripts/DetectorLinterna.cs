@@ -43,6 +43,13 @@ public class DetectorLinterna : MonoBehaviour
         if (EstaApuntandoLinterna())
         {
             tiempoApuntando += Time.deltaTime;
+
+            //Vida muñeca
+            SistemaVidasMuñeca vida= GetComponent<SistemaVidasMuñeca>();
+            if(vida!=null){
+                vida.RecibirDaño(vida.dañoPorSegundo*Time.deltaTime);
+            }
+
             if (tiempoApuntando >= tiempoParaCorrer && !corriendo)
             {
                 corriendo = true;
