@@ -150,135 +150,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 730400595}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &9719012
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9719014}
-  - component: {fileID: 9719013}
-  m_Layer: 0
-  m_Name: Musica
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!82 &9719013
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9719012}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 126da5b044c244c419554492d4095c2b, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.015
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!4 &9719014
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9719012}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.64639, y: 0.05, z: -1.14751}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &12283070
 GameObject:
   m_ObjectHideFlags: 0
@@ -1574,27 +1445,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &94884942 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3903482225804038116, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
-  m_PrefabInstance: {fileID: 1542776509}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &94884948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 94884942}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 972ffd56ce52e994482773e01673c973, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PasosJugador
-  sonidosPasos:
-  - {fileID: 8300000, guid: 0e7c356dfd313b34c9c1b33b3253a65f, type: 3}
-  - {fileID: 8300000, guid: 149977ace1f0d1d4f8945265e1d5e02c, type: 3}
-  tiempoEntrePasos: 0.5
 --- !u!1 &101782912
 GameObject:
   m_ObjectHideFlags: 0
@@ -11563,7 +11413,7 @@ Transform:
   m_GameObject: {fileID: 1017165742}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.72, y: 0, z: 1.8899999}
+  m_LocalPosition: {x: 2.527, y: 0, z: 1.8899999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11594,7 +11444,7 @@ Transform:
   m_GameObject: {fileID: 1022287527}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.15, y: 0, z: -2.249}
+  m_LocalPosition: {x: 3.001, y: 0, z: -2.5929995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15282,7 +15132,7 @@ Transform:
   m_GameObject: {fileID: 1332552154}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.04, y: 0, z: -3.6410003}
+  m_LocalPosition: {x: -3.2869997, y: 0, z: -3.6410003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16997,57 +16847,34 @@ MonoBehaviour:
   - nombre: Habitacion1
     centro: {fileID: 1995529596}
     spawnPoints:
-    - punto: {fileID: 1403841450}
-      llorar: 0
-      sentada: 0
-    - punto: {fileID: 1017165743}
-      llorar: 1
-      sentada: 0
-    - punto: {fileID: 1332552155}
-      llorar: 1
-      sentada: 0
+    - {fileID: 1403841450}
+    - {fileID: 1017165743}
+    - {fileID: 1332552155}
   - nombre: Habitacion2
     centro: {fileID: 1578224121}
     spawnPoints:
-    - punto: {fileID: 931493824}
-      llorar: 1
-      sentada: 0
-    - punto: {fileID: 1022287528}
-      llorar: 0
-      sentada: 1
-    - punto: {fileID: 1748201897}
-      llorar: 0
-      sentada: 0
+    - {fileID: 931493824}
+    - {fileID: 1022287528}
+    - {fileID: 1748201897}
   - nombre: Habitacion3
     centro: {fileID: 688342365}
     spawnPoints:
-    - punto: {fileID: 1331095766}
-      llorar: 0
-      sentada: 0
-    - punto: {fileID: 533894732}
-      llorar: 1
-      sentada: 0
+    - {fileID: 1331095766}
+    - {fileID: 533894732}
   - nombre: Habitacion4
     centro: {fileID: 654551300}
     spawnPoints:
-    - punto: {fileID: 1968450483}
-      llorar: 0
-      sentada: 0
+    - {fileID: 1968450483}
   - nombre: Habitacion5
     centro: {fileID: 1925192065}
     spawnPoints:
-    - punto: {fileID: 68451014}
-      llorar: 0
-      sentada: 0
-    - punto: {fileID: 652136798}
-      llorar: 0
-      sentada: 0
-    - punto: {fileID: 1871757197}
-      llorar: 0
-      sentada: 1
+    - {fileID: 68451014}
+    - {fileID: 652136798}
+    - {fileID: 1871757197}
   "ni\xF1a": {fileID: 1575080982}
-  probabilidadAparicion: 1
-  tiempoEntreApariciones: 0
+  distanciaDeteccion: 15
+  probabilidadAparicion: 0.7
+  tiempoEntreApariciones: 3
 --- !u!1001 &1478693119
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17990,9 +17817,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4148778239110795873, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
       insertIndex: 1
       addedObject: {fileID: 1542776512}
-    - targetCorrespondingSourceObject: {fileID: 3903482225804038116, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 94884948}
   m_SourcePrefab: {fileID: 100100000, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
 --- !u!4 &1542776510 stripped
 Transform:
@@ -18249,7 +18073,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1575080982}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 420df22437fb18c4fae1fc204feb08d1, type: 3}
   m_Name: 
@@ -18295,9 +18119,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   voz: {fileID: 8300000, guid: 387db40ab97fe7144b68ceb88f63f4ca, type: 3}
-  sonidoLlorando: {fileID: 8300000, guid: f11b63cbb29b83740b6df409791b5f72, type: 3}
-  sonidoTareando: {fileID: 8300000, guid: 302893da53f209e49925752095b5e2f4, type: 3}
-  sonidoRespiracion: {fileID: 8300000, guid: 1fd603eb3a1c098478c7bbfefb39f0e7, type: 3}
   distanciaParaSonar: 3
   tiempoEntreRepeticiones: 10
 --- !u!114 &1575080990
@@ -21656,7 +21477,7 @@ Transform:
   m_GameObject: {fileID: 1871757196}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.02, y: 0, z: 2.11}
+  m_LocalPosition: {x: -4.2599998, y: 0, z: 2.9899998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24225,4 +24046,3 @@ SceneRoots:
   - {fileID: 381400490}
   - {fileID: 47540868}
   - {fileID: 1471666128}
-  - {fileID: 9719014}

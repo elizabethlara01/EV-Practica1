@@ -52,14 +52,19 @@ public class DetectorLinterna : MonoBehaviour
 
             if (tiempoApuntando >= tiempoParaCorrer && !corriendo)
             {
-                corriendo = true;
-                audioSourceRisa.time = 4f;
-                audioSourceRisa.Play();
-                Vector3 dir = (jugador.position - transform.position);
-                dir.y = 0;
-                direccionFija = dir.normalized;
-                animator.SetBool("corriendo", true);
-                Invoke("Desaparecer", tiempoParaDesaparecer);
+                if (animator.GetBool("sentada") || animator.GetBool("llorando"))
+                {
+                    Desaparecer();
+                }else{
+                    corriendo = true;
+                    audioSourceRisa.time = 4f;
+                    audioSourceRisa.Play();
+                    Vector3 dir = (jugador.position - transform.position);
+                    dir.y = 0;
+                    direccionFija = dir.normalized;
+                    animator.SetBool("corriendo", true);
+                    Invoke("Desaparecer", tiempoParaDesaparecer);
+                }
             }
         }
         else

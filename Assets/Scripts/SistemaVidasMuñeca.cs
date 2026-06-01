@@ -17,17 +17,24 @@ public class SistemaVidasMuñeca : MonoBehaviour
         
     }
 
+    void OnEnable()
+    {
+        muriendo = false;
+    }
+
     public void RecibirDaño(float daño){
         if(!muriendo){
             vidaActual-=daño;
              Debug.Log("Vida restante: " + vidaActual.ToString("F0"));
             if(vidaActual<=0){
                 muriendo=true;
-                StartCoroutine(ParpadearyDesaparecer());
+                //StartCoroutine(ParpadearyDesaparecer());
             }
         }
 
     }
+
+
 
     IEnumerator ParpadearyDesaparecer(){
         //Busca los renderes de la muñeca, como puede ser el cuerpo, ropa, pelo, etc.

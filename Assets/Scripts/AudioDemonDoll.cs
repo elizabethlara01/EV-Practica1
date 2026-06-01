@@ -3,20 +3,27 @@ using UnityEngine;
 public class AudioMuñeca : MonoBehaviour
 {
     public AudioClip voz;
+    public AudioClip sonidoLlorando;
+    public AudioClip sonidoTareando;
+    public AudioClip sonidoRespiracion;
+
     public float distanciaParaSonar = 3f;
-    public float tiempoEntreRepeticiones = 10f; // Cada 10 segundos
+    public float tiempoEntreRepeticiones = 10f;
 
     private AudioSource audioSource;
     private Transform jugador;
     private float tiempoUltimaVez = -10f;
+    private Animator animator;    
+
+    
 
     void Start()
     {
         jugador = GameObject.FindWithTag("MainCamera").transform;
+        animator = GetComponent<Animator>();
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.spatialBlend = 1f;
-        audioSource.volume = 1.5f;
-        audioSource.clip = voz;
+        audioSource.volume = 4f;
     }
 
     void Update()
@@ -24,10 +31,32 @@ public class AudioMuñeca : MonoBehaviour
         float distancia = Vector3.Distance(transform.position, jugador.position);
         float tiempoActual = Time.time;
 
-        if (distancia <= distanciaParaSonar && tiempoActual - tiempoUltimaVez >= tiempoEntreRepeticiones)
+        if (tiempoActual - tiempoUltimaVez >= tiempoEntreRepeticiones)
         {
-            tiempoUltimaVez = tiempoActual;
-            audioSource.Play();
+            if (animator.GetBool("llorando"))
+            {
+                tiempoUltimaVez = tiempoActual;
+                audioSource.clip = sonidoLlorando;
+                audioSource.Play();
+            }
+            else if (animator.GetBool("sentada"))
+            {
+                tiempoUltimaVez = tiempoActual;
+                audioSource.clip = sonidoTareando;
+                audioSource.Play();
+            }
+            else if (!animator.GetBool("llorando")&&!animator.GetBool("sentada")&&distancia <= distanciaParaSonar)
+            {
+                tiempoUltimaVez = tiempoActual;
+                audioSource.clip = voz;
+                audioSource.Play();
+            }
         }
+    }
+
+    public void ReproducirRespiracion()
+    {
+        audioSource.clip = sonidoRespiracion;
+        audioSource.Play();
     }
 }
