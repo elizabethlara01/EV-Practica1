@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\dooropen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\evely\\uhu\\ev\\unityproject\\ev-practica1\\assets\\scripts\\flickeringlight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\flickeringlight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\evely\\UHU\\EV\\UnityProject\\EV-Practica1\\Assets\\Scripts\\DoorVR.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\DoorVR.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\evely\\uhu\\ev\\unityproject\\ev-practica1\\assets\\scripts\\flickeringlight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\flickeringlight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -36,14 +36,14 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\DoorOpen.cs",
               "ToolTip": "C:\\Users\\evely\\UHU\\EV\\UnityProject\\EV-Practica1\\Assets\\Scripts\\DoorOpen.cs",
               "RelativeToolTip": "Assets\\Scripts\\DoorOpen.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-30T21:07:04.926Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "DoorVR.cs",
               "DocumentMoniker": "C:\\Users\\evely\\UHU\\EV\\UnityProject\\EV-Practica1\\Assets\\Scripts\\DoorVR.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\DoorVR.cs",
@@ -54,16 +54,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "FlickeringLight.cs",
               "DocumentMoniker": "C:\\Users\\evely\\UHU\\EV\\UnityProject\\EV-Practica1\\Assets\\Scripts\\FlickeringLight.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\FlickeringLight.cs",
               "ToolTip": "C:\\Users\\evely\\UHU\\EV\\UnityProject\\EV-Practica1\\Assets\\Scripts\\FlickeringLight.cs",
               "RelativeToolTip": "Assets\\Scripts\\FlickeringLight.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAIwDMAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-14T15:12:36.077Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-14T15:12:36.077Z"
             }
           ]
         }
