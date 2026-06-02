@@ -11,6 +11,7 @@ public class GhostJumpscare : MonoBehaviour
     [Header("Configuración")]
     public float distanciaActivacion = 1f;
     public float distanciaFrontal = 0.8f;
+    public float alturaCaraDesdeRaiz = 1.6f; // ajustar según el modelo del fantasma
 
     private bool jumpscareActivado = false;
     private GhostController ghostController;
@@ -28,7 +29,10 @@ public class GhostJumpscare : MonoBehaviour
     {
         if (jumpscareActivado) return;
 
-        float distancia = Vector3.Distance(transform.position, centerEyeAnchor.position);
+        // Distancia solo en XZ: el fantasma está al nivel del suelo y el eye anchor está a la altura de la cabeza
+        Vector2 ghostXZ = new(transform.position.x, transform.position.z);
+        Vector2 anchorXZ = new(centerEyeAnchor.position.x, centerEyeAnchor.position.z);
+        float distancia = Vector2.Distance(ghostXZ, anchorXZ);
         if (distancia <= distanciaActivacion)
         {
             StartCoroutine(EjecutarJumpscare());
@@ -43,13 +47,15 @@ public class GhostJumpscare : MonoBehaviour
         agent.isStopped = true;
         agent.enabled = false;
 
-        // Usar la dirección del fantasma hacia el jugador (funciona en simulador y VR real)
-        Vector3 direccionAlJugador = (centerEyeAnchor.position - transform.position).normalized;
+        // Dirección horizontal del fantasma hacia el jugador
+        Vector3 direccionAlJugador = centerEyeAnchor.position - transform.position;
         direccionAlJugador.y = 0f;
+        direccionAlJugador.Normalize();
 
-        // Posición delante del jugador, a la altura de los ojos
-        Vector3 nuevaPosicion = centerEyeAnchor.position + direccionAlJugador * distanciaFrontal;
-        nuevaPosicion.y = centerEyeAnchor.position.y - 0.3f; // ligero ajuste para que la cara quede centrada
+        // Colocar el fantasma delante del jugador (en la dirección desde la que viene)
+        // y bajar el root para que la cara quede a la altura de los ojos
+        Vector3 nuevaPosicion = centerEyeAnchor.position - direccionAlJugador * distanciaFrontal;
+        nuevaPosicion.y = centerEyeAnchor.position.y - alturaCaraDesdeRaiz;
 
         transform.position = nuevaPosicion;
 
@@ -64,6 +70,7 @@ public class GhostJumpscare : MonoBehaviour
         jumpscareUI.OcultarJumpscare();
         agent.enabled = true;
         ghostDetection.jumpscareActivo = false;
+        animator.CrossFade("agatha_RIG_skeleton|idle", 0.25f);
         ghostController.ReanudarMovimiento();
     }
 }

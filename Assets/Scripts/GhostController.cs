@@ -34,6 +34,8 @@ public class GhostController : MonoBehaviour
 
     void Update()
     {
+        if (!agent.enabled) return;
+
         UpdateSpeed();
         float targetSpeed = agent.velocity.magnitude;
         float currentSpeed = animator.GetFloat("Speed");
