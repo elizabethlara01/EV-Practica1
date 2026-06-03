@@ -47,14 +47,11 @@ public class GhostJumpscare : MonoBehaviour
         agent.isStopped = true;
         agent.enabled = false;
 
-        // Dirección horizontal del fantasma hacia el jugador
-        Vector3 direccionAlJugador = centerEyeAnchor.position - transform.position;
-        direccionAlJugador.y = 0f;
-        direccionAlJugador.Normalize();
+        // Dirección hacia donde mira el jugador (ignorar Y para mantenerlo en plano horizontal)
+        Vector3 cameraForward = new Vector3(centerEyeAnchor.forward.x, 0f, centerEyeAnchor.forward.z).normalized;
 
-        // Colocar el fantasma delante del jugador (en la dirección desde la que viene)
-        // y bajar el root para que la cara quede a la altura de los ojos
-        Vector3 nuevaPosicion = centerEyeAnchor.position - direccionAlJugador * distanciaFrontal;
+        // Colocar el fantasma siempre delante de la cámara, independientemente de por dónde haya llegado
+        Vector3 nuevaPosicion = centerEyeAnchor.position + cameraForward * distanciaFrontal;
         nuevaPosicion.y = centerEyeAnchor.position.y - alturaCaraDesdeRaiz;
 
         transform.position = nuevaPosicion;

@@ -20,6 +20,7 @@ public class SistemaVidasMuñeca : MonoBehaviour
     void OnEnable()
     {
         muriendo = false;
+        vidaActual = vidaMaxima;
     }
 
     public void RecibirDaño(float daño){
@@ -28,7 +29,8 @@ public class SistemaVidasMuñeca : MonoBehaviour
              Debug.Log("Vida restante: " + vidaActual.ToString("F0"));
             if(vidaActual<=0){
                 muriendo=true;
-                //StartCoroutine(ParpadearyDesaparecer());
+                EchoManager.Instance.EchoKilled();
+                StartCoroutine(ParpadearyDesaparecer());
             }
         }
 
