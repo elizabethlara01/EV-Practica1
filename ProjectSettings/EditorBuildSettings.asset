@@ -6,8 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MenuPrincipal.unity
+    guid: 582d768ae0e883648b69f85b429749c8
+  - enabled: 1
+    path: Assets/Scenes/EscenaAjustes.unity
+    guid: 625bdef61e0faed458e8fd1c28c88caf
+  - enabled: 1
     path: Assets/Scenes/EscenaPrincipal.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    guid: d4b3462f4cbc42649967e8ba84ab1670
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 55123e46376b50040ac8fdebe955f97c, type: 2}
