@@ -34,6 +34,8 @@ public class GhostController : MonoBehaviour
 
     void Update()
     {
+        if (!agent.enabled) return;
+
         UpdateSpeed();
         float targetSpeed = agent.velocity.magnitude;
         float currentSpeed = animator.GetFloat("Speed");
@@ -91,5 +93,19 @@ public class GhostController : MonoBehaviour
         if (patrolPoints.Length == 0) return;
         agent.SetDestination(patrolPoints[currentPatrolIndex].position);
         currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
+    }
+
+    public void PausarMovimiento()
+    {
+        agent.isStopped = true;
+        agent.velocity = Vector3.zero;
+        isChasing = false;
+        isLookingAround = false;
+    }
+
+    public void ReanudarMovimiento()
+    {
+        agent.isStopped = false;
+        GoToNextPatrolPoint();
     }
 }

@@ -13,13 +13,18 @@ public class GhostDetection : MonoBehaviour
     public Transform player;
     private GhostController ghostController;
 
+    [HideInInspector] public bool jumpscareActivo = false;
+
     void Start()
     {
         ghostController = GetComponent<GhostController>();
+        player = GetComponent<GhostJumpscare>()?.centerEyeAnchor;
     }
 
     void Update()
     {
+        if (jumpscareActivo) return; // No detecta durante el jumpscare
+
         if (CanSeePlayer())
             ghostController.ChasePlayer(player.position);
         else
@@ -28,7 +33,11 @@ public class GhostDetection : MonoBehaviour
 
     bool CanSeePlayer()
     {
-        float distance = Vector3.Distance(transform.position, player.position);
+        // Todos los cálculos en XZ: el fantasma camina en el suelo y el jugador está a distinta altura
+        Vector3 ghostFlat  = new(transform.position.x, 0f, transform.position.z);
+        Vector3 playerFlat = new(player.position.x,    0f, player.position.z);
+
+        float distance = Vector3.Distance(ghostFlat, playerFlat);
 
         // Siempre detecta si está muy cerca
         if (distance < alwaysDetectRadius) return true;
@@ -36,13 +45,16 @@ public class GhostDetection : MonoBehaviour
         // Fuera del radio general → no ve
         if (distance > detectionRadius) return false;
 
-        // Comprueba ángulo
-        Vector3 dirToPlayer = (player.position - transform.position).normalized;
-        float angle = Vector3.Angle(transform.forward, dirToPlayer);
+        // Comprueba ángulo en horizontal
+        Vector3 dirToPlayer  = (playerFlat - ghostFlat).normalized;
+        Vector3 forwardFlat  = new Vector3(transform.forward.x, 0f, transform.forward.z).normalized;
+        float angle = Vector3.Angle(forwardFlat, dirToPlayer);
         if (angle > fieldOfViewAngle / 2f) return false;
 
-        // Comprueba que no haya pared por delante (raycast)
-        if (Physics.Raycast(transform.position, dirToPlayer, distance, obstacleMask))
+        // Raycast en 3D real para respetar obstáculos físicos
+        Vector3 dir3D  = (player.position - transform.position).normalized;
+        float   dist3D = Vector3.Distance(transform.position, player.position);
+        if (Physics.Raycast(transform.position, dir3D, dist3D, obstacleMask))
             return false;
 
         return true;
