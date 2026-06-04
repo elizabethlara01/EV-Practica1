@@ -28,13 +28,18 @@ public class RankingManager : MonoBehaviour
 
     void Start()
     {
-        csvPath = Path.Combine(Application.persistentDataPath, "ranking.csv");
+        string carpetaPartidas = Path.GetFullPath(Path.Combine(Application.dataPath, "..", "Partidas"));
+        Directory.CreateDirectory(carpetaPartidas);
+        csvPath = Path.Combine(carpetaPartidas, "ranking.csv");
+        Debug.Log("[Ranking] CSV path: " + csvPath + " | Existe: " + File.Exists(csvPath));
+
         tiempoActual = PlayerPrefs.GetFloat("UltimoTiempo", 0f);
 
-        textoTiempoActual.text = "Tu tiempo: " + FormatearTiempo(tiempoActual);
+        if (textoTiempoActual != null)
+            textoTiempoActual.text = "Tu tiempo: " + FormatearTiempo(tiempoActual);
 
-        btnGuardar.onClick.AddListener(GuardarEntrada);
-        btnInicio.onClick.AddListener(() => SceneManager.LoadScene("MenuPrincipal"));
+        if (btnGuardar != null) btnGuardar.onClick.AddListener(GuardarEntrada);
+        if (btnInicio != null)  btnInicio.onClick.AddListener(() => SceneManager.LoadScene("MenuPrincipal"));
 
         MostrarRanking();
     }
@@ -56,7 +61,10 @@ public class RankingManager : MonoBehaviour
 
     void MostrarRanking()
     {
+        if (textoRanking == null) { Debug.LogError("[Ranking] textoRanking no está asignado en el Inspector"); return; }
+
         List<(string nombre, float tiempo)> entradas = CargarEntradas();
+        Debug.Log("[Ranking] Entradas leídas del CSV: " + entradas.Count);
 
         if (entradas.Count == 0)
         {
@@ -64,7 +72,7 @@ public class RankingManager : MonoBehaviour
             return;
         }
 
-        var top = entradas.OrderBy(e => e.tiempo).Take(MAX_ENTRADAS).ToList();
+        var top = entradas.OrderByDescending(e => e.tiempo).Take(MAX_ENTRADAS).ToList();
 
         string texto = "─── TOP 5 ───\n\n";
         for (int i = 0; i < top.Count; i++)
