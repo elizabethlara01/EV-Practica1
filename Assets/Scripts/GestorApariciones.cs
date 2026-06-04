@@ -37,7 +37,7 @@ public class GestorApariciones : MonoBehaviour
 
     void Start()
     {
-        jugador = GameObject.FindWithTag("Player").transform;
+        jugador = GameObject.FindWithTag("MainCamera").transform;
     }
 
     void Update()

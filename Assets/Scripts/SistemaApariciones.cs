@@ -12,7 +12,7 @@ public class SistemaApariciones : MonoBehaviour
 
     void Start()
     {
-        jugador = GameObject.FindWithTag("Player").transform;
+        jugador = GameObject.FindWithTag("MainCamera").transform;
     }
 
     void Update()
