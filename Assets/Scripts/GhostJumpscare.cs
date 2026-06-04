@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GhostJumpscare : MonoBehaviour
 {
@@ -65,9 +66,9 @@ public class GhostJumpscare : MonoBehaviour
         yield return new WaitForSeconds(2.8f);
 
         jumpscareUI.OcultarJumpscare();
-        agent.enabled = true;
-        ghostDetection.jumpscareActivo = false;
-        animator.CrossFade("agatha_RIG_skeleton|idle", 0.25f);
-        ghostController.ReanudarMovimiento();
+
+        TiempoPartida.Instance?.DetenerYGuardar();
+
+        SceneManager.LoadScene("Ranking");
     }
 }
