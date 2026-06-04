@@ -8,16 +8,13 @@ public class DetectorLinterna : MonoBehaviour
     public float velocidad = 5f;
     public AudioClip risaCorrer; // Arrastra el audio de la risa aquí
     
-    private float tiempoApuntando = 0f;
-   // private bool corriendo = false;
-    private Transform jugador;
-    //private Vector3 direccionFija;
-    private AudioSource audioSourceRisa;
+    [HideInInspector] public bool estaEnSecuencia = false;
 
-    void OnEnable()
-    {
-        tiempoApuntando = 0f;
-    }
+    private float tiempoApuntando = 0f;
+    private bool corriendo = false;
+    private Transform jugador;
+    private Vector3 direccionFija;
+    private AudioSource audioSourceRisa;
 
     void Start()
     {
@@ -25,15 +22,15 @@ public class DetectorLinterna : MonoBehaviour
         audioSourceRisa = gameObject.AddComponent<AudioSource>();
         audioSourceRisa.spatialBlend = 1f;
         audioSourceRisa.clip = risaCorrer;
-        //audioSourceRisa.loop = true; // Se repite mientras corre
+        audioSourceRisa.loop = true; // Se repite mientras corre
     }
 
     void Update()
     {
-        //if (corriendo)
-        //{
-        //   transform.position += direccionFija * velocidad * Time.deltaTime;
-        //}else{
+        if (corriendo)
+        {
+           transform.position += direccionFija * velocidad * Time.deltaTime;
+        }else{
             Vector3 direccion = jugador.position - transform.position;
             direccion.y = 0; // Para que no se incline
             
@@ -43,7 +40,7 @@ public class DetectorLinterna : MonoBehaviour
                 Quaternion rotacionObjetivo = Quaternion.LookRotation(direccion);
                 transform.rotation = Quaternion.Slerp(transform.rotation, rotacionObjetivo, Time.deltaTime * 3f);
             }
-        //}
+        }
 
         if (EstaApuntandoLinterna())
         {
@@ -55,13 +52,13 @@ public class DetectorLinterna : MonoBehaviour
                 vida.RecibirDaño(vida.dañoPorSegundo*Time.deltaTime);
             }
 
-            if (tiempoApuntando >= tiempoParaCorrer)
+            if (tiempoApuntando >= tiempoParaCorrer && !corriendo)
             {
-                //if (animator.GetBool("sentada") || animator.GetBool("llorando"))
-               // {
+                if (animator.GetBool("sentada") || animator.GetBool("llorando"))
+                {
                     Desaparecer();
-                /*
                 }else{
+                    estaEnSecuencia = true;
                     corriendo = true;
                     audioSourceRisa.time = 4f;
                     audioSourceRisa.Play();
@@ -70,7 +67,7 @@ public class DetectorLinterna : MonoBehaviour
                     direccionFija = dir.normalized;
                     animator.SetBool("corriendo", true);
                     Invoke("Desaparecer", tiempoParaDesaparecer);
-                }*/
+                }
             }
         }
         else
@@ -100,16 +97,31 @@ public class DetectorLinterna : MonoBehaviour
         return false;
     }
     
+    void OnDisable()
+    {
+        corriendo = false;
+        estaEnSecuencia = false;
+        tiempoApuntando = 0f;
+        direccionFija = Vector3.zero;
+        if (audioSourceRisa != null) audioSourceRisa.Stop();
+    }
+
     private void Desaparecer()
     {
-        //float tiempoActual = audioSourceRisa.time;
-       // GameObject audioObj = new GameObject("RisaLinterna");
-        //AudioSource audio = audioObj.AddComponent<AudioSource>();
-        //audio.clip = risaCorrer;
-        //audio.spatialBlend = 0f; // 2D para que se escuche bien
-        //audio.time = tiempoActual;
-        //audio.Play();
-        //Destroy(audioObj, risaCorrer.length);
+        audioSourceRisa.Stop();
+
+        if (risaCorrer != null)
+        {
+            float tiempoActual = audioSourceRisa.time;
+            GameObject audioObj = new GameObject("RisaLinterna");
+            AudioSource audio = audioObj.AddComponent<AudioSource>();
+            audio.clip = risaCorrer;
+            audio.spatialBlend = 0f;
+            audio.time = tiempoActual;
+            audio.Play();
+            Destroy(audioObj, risaCorrer.length);
+        }
+
         gameObject.SetActive(false);
     }
 }

@@ -28,9 +28,9 @@ public class GestorApariciones : MonoBehaviour
     private Transform jugador;
     private Habitacion habitacionActual = null;
     private float tiempoUltimaAparicion = 0f;
+    private DetectorLinterna detectorLinterna;
     
 
-    
     void Awake()
     {
         instancia = this;
@@ -39,10 +39,13 @@ public class GestorApariciones : MonoBehaviour
     void Start()
     {
         jugador = GameObject.FindWithTag("MainCamera").transform;
+        detectorLinterna = niña.GetComponent<DetectorLinterna>();
     }
 
     void Update()
     {
+        if (detectorLinterna != null && detectorLinterna.estaEnSecuencia) return;
+
         Habitacion habitacionMasCercana = GetHabitacionMasCercana();
 
         if (habitacionMasCercana != null && Time.time - tiempoUltimaAparicion >= tiempoEntreApariciones)
@@ -51,7 +54,7 @@ public class GestorApariciones : MonoBehaviour
             {
                 habitacionActual = habitacionMasCercana;
                 float random = Random.value;
-                Debug.Log("Habitacion: " + habitacionActual.nombre + " Random: " + random);
+                //Debug.Log("Habitacion: " + habitacionActual.nombre + " Random: " + random);
                 if (random <= probabilidadAparicion)
                 {
                     tiempoUltimaAparicion = Time.time;
@@ -73,7 +76,7 @@ public class GestorApariciones : MonoBehaviour
         foreach (Habitacion h in habitaciones)
         {
             float distancia = Vector3.Distance(h.centro.position, jugador.position);
-            Debug.Log(h.nombre + " distancia: " + distancia.ToString("F1"));
+            //Debug.Log(h.nombre + " distancia: " + distancia.ToString("F1"));
             if (distancia < distanciaMinima)
             {
                 distanciaMinima = distancia;
@@ -96,7 +99,7 @@ public class GestorApariciones : MonoBehaviour
             detras.y = niña.transform.position.y;
             niña.transform.position = detras;
             niña.transform.rotation = Quaternion.LookRotation(jugador.forward);
-            Debug.Log("Aparece detrás del jugador");
+            //Debug.Log("Aparece detrás del jugador");
 
             Animator anim = niña.GetComponent<Animator>();
             anim.SetBool("sentada", false);
@@ -112,7 +115,7 @@ public class GestorApariciones : MonoBehaviour
             SpawnPoint spawn = habitacion.spawnPoints[indice];
             niña.transform.position = spawn.punto.position;
             niña.transform.rotation = spawn.punto.rotation;
-            Debug.Log("Aparece en: " + spawn.punto.name);
+            //Debug.Log("Aparece en: " + spawn.punto.name);
 /*
             Vector3 direccion = habitacion.centro.position - spawn.punto.position;
             direccion.y = 0;
