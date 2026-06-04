@@ -16,16 +16,30 @@ public class AudioMuñeca : MonoBehaviour
     private Animator animator;    
 
     
-
-    void Start()
+/*
+    void Awake()
     {
         jugador = GameObject.FindWithTag("MainCamera").transform;
         animator = GetComponent<Animator>();
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.spatialBlend = 1f;
         audioSource.volume = 4f;
+        
     }
-
+*/
+    void OnEnable()
+    {
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.spatialBlend = 1f;
+            audioSource.volume = 4f;
+        }
+        if (jugador == null)
+            jugador = GameObject.FindWithTag("MainCamera").transform;
+        if (animator == null)
+            animator = GetComponent<Animator>();
+    }
     void Update()
     {
         float distancia = Vector3.Distance(transform.position, jugador.position);

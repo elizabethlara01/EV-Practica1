@@ -9,10 +9,15 @@ public class DetectorLinterna : MonoBehaviour
     public AudioClip risaCorrer; // Arrastra el audio de la risa aquí
     
     private float tiempoApuntando = 0f;
-    private bool corriendo = false;
+   // private bool corriendo = false;
     private Transform jugador;
-    private Vector3 direccionFija;
+    //private Vector3 direccionFija;
     private AudioSource audioSourceRisa;
+
+    void OnEnable()
+    {
+        tiempoApuntando = 0f;
+    }
 
     void Start()
     {
@@ -20,15 +25,15 @@ public class DetectorLinterna : MonoBehaviour
         audioSourceRisa = gameObject.AddComponent<AudioSource>();
         audioSourceRisa.spatialBlend = 1f;
         audioSourceRisa.clip = risaCorrer;
-        audioSourceRisa.loop = true; // Se repite mientras corre
+        //audioSourceRisa.loop = true; // Se repite mientras corre
     }
 
     void Update()
     {
-        if (corriendo)
-        {
-           transform.position += direccionFija * velocidad * Time.deltaTime;
-        }else{
+        //if (corriendo)
+        //{
+        //   transform.position += direccionFija * velocidad * Time.deltaTime;
+        //}else{
             Vector3 direccion = jugador.position - transform.position;
             direccion.y = 0; // Para que no se incline
             
@@ -38,7 +43,7 @@ public class DetectorLinterna : MonoBehaviour
                 Quaternion rotacionObjetivo = Quaternion.LookRotation(direccion);
                 transform.rotation = Quaternion.Slerp(transform.rotation, rotacionObjetivo, Time.deltaTime * 3f);
             }
-        }
+        //}
 
         if (EstaApuntandoLinterna())
         {
@@ -50,11 +55,12 @@ public class DetectorLinterna : MonoBehaviour
                 vida.RecibirDaño(vida.dañoPorSegundo*Time.deltaTime);
             }
 
-            if (tiempoApuntando >= tiempoParaCorrer && !corriendo)
+            if (tiempoApuntando >= tiempoParaCorrer)
             {
-                if (animator.GetBool("sentada") || animator.GetBool("llorando"))
-                {
+                //if (animator.GetBool("sentada") || animator.GetBool("llorando"))
+               // {
                     Desaparecer();
+                /*
                 }else{
                     corriendo = true;
                     audioSourceRisa.time = 4f;
@@ -64,7 +70,7 @@ public class DetectorLinterna : MonoBehaviour
                     direccionFija = dir.normalized;
                     animator.SetBool("corriendo", true);
                     Invoke("Desaparecer", tiempoParaDesaparecer);
-                }
+                }*/
             }
         }
         else
@@ -96,14 +102,14 @@ public class DetectorLinterna : MonoBehaviour
     
     private void Desaparecer()
     {
-        float tiempoActual = audioSourceRisa.time;
-        GameObject audioObj = new GameObject("RisaLinterna");
-        AudioSource audio = audioObj.AddComponent<AudioSource>();
-        audio.clip = risaCorrer;
-        audio.spatialBlend = 0f; // 2D para que se escuche bien
-        audio.time = tiempoActual;
-        audio.Play();
-        Destroy(audioObj, risaCorrer.length);
+        //float tiempoActual = audioSourceRisa.time;
+       // GameObject audioObj = new GameObject("RisaLinterna");
+        //AudioSource audio = audioObj.AddComponent<AudioSource>();
+        //audio.clip = risaCorrer;
+        //audio.spatialBlend = 0f; // 2D para que se escuche bien
+        //audio.time = tiempoActual;
+        //audio.Play();
+        //Destroy(audioObj, risaCorrer.length);
         gameObject.SetActive(false);
     }
 }

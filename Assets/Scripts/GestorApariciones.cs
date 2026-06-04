@@ -30,6 +30,7 @@ public class GestorApariciones : MonoBehaviour
     private float tiempoUltimaAparicion = 0f;
     
 
+    
     void Awake()
     {
         instancia = this;
@@ -72,7 +73,7 @@ public class GestorApariciones : MonoBehaviour
         foreach (Habitacion h in habitaciones)
         {
             float distancia = Vector3.Distance(h.centro.position, jugador.position);
-            //Debug.Log(h.nombre + " distancia: " + distancia.ToString("F1"));
+            Debug.Log(h.nombre + " distancia: " + distancia.ToString("F1"));
             if (distancia < distanciaMinima)
             {
                 distanciaMinima = distancia;

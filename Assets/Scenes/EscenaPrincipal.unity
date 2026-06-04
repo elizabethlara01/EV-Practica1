@@ -23934,7 +23934,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4913005085238046037, guid: 259d1de4507c3624c829968c95835990, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24039,7 +24039,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &2085336218
 BoxCollider:
   m_ObjectHideFlags: 0

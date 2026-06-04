@@ -29,10 +29,10 @@ public class PasosJugador : MonoBehaviour
         bool moviendose = movimiento.magnitude > 0.005f;
         posicionAnterior = transform.position;
 
-        Debug.Log("Moviendose: " + moviendose);
+        //Debug.Log("Moviendose: " + moviendose);
         if (moviendose && Time.time - tiempoUltimoPaso >= tiempoEntrePasos)
         {
-            Debug.Log("Reproduciendo paso");
+            //Debug.Log("Reproduciendo paso");
             tiempoUltimoPaso = Time.time;
             int indice = Random.Range(0, sonidosPasos.Length);
             audioSource.PlayOneShot( sonidosPasos[indice]);
